@@ -15,7 +15,6 @@ function jinjaToHTML(jinjaString = "") {
       else if (jinjaString[i] === "<")
         return match;
     }
-    console.log(cmd)
     if (cmd === "from" || cmd === "extends" || cmd === "set") {
       return `<jinjaTag ${match}></jinjaTag>`;
     } 
