@@ -1,6 +1,6 @@
 {
   "name": "jinja2-beautify",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "bin": {
     "jinja2-beautify": "index.js"
@@ -8,7 +8,6 @@
   "repository": "git@github.com:hakanalpp/jinja2-beautify.git",
   "author": "Hakan Alp <hakana926@gmail.com>",
   "license": "MIT",
-  "private": true,
   "type": "module",
   "scripts": {
     "start": "NODE_OPTIONS='--experimental-specifier-resolution=node' node index.js"
