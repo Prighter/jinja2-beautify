@@ -1,6 +1,6 @@
 {
   "name": "jinja2-beautify",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "index.js",
   "bin": {
     "jinja2-beautify": "index.js"
