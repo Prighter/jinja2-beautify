@@ -1,6 +1,7 @@
 {
   "name": "jinja2-beautify",
-  "version": "1.0.2",
+  "version": "1.0.0",
+  "homepage": "https://github.com/hakanalpp/jinja2-beautify",
   "main": "index.js",
   "bin": {
     "jinja2-beautify": "index.js"
@@ -9,8 +10,12 @@
   "author": "Hakan Alp <hakana926@gmail.com>",
   "license": "MIT",
   "type": "module",
+  "bugs": {
+    "url" : "https://github.com/hakanalpp/jinja2-beautify/issues",
+    "email" : "hakana926@gmail.com"
+  },
   "scripts": {
-    "start": "NODE_OPTIONS='--experimental-specifier-resolution=node' node index.js"
+    "start": "node index.js"
   },
   "dependencies": {
     "js-beautify": "^1.14.0",
