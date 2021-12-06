@@ -18,7 +18,7 @@ function jinjaToHTML(jinjaString = "") {
     if (cmd === "from" || cmd === "extends" || cmd === "set") {
       return `<jinjaTag ${match}></jinjaTag>`;
     } 
-    if (cmd == "else" || cmd == "elif") {
+    if (cmd === "else" || cmd === "elif") {
       return `</jinjaTag><jinjaTag ${match}>`;
     }
     if (cmd.startsWith("end")) {
@@ -29,7 +29,6 @@ function jinjaToHTML(jinjaString = "") {
 }
 
 function HTMLToJinja(htmlString = "") {
-  // eslint-disable-next-line prefer-regex-literals
   const r = new RegExp("(<jinjaTag|</jinjaTag) *(.*?) +(.*?) *(>|/>)", "gs");
   return htmlString
     .replace(r, (match) => {

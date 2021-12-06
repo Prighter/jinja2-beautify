@@ -21,6 +21,7 @@
         "no-unused-vars": "warn",
         "no-useless-escape": "off",
         "no-use-before-define": "off",
-        "import/extensions ": ["never"]
+        "import/extensions ": ["never"],
+        "prefer-regex-literals": "off"
     }
 }
