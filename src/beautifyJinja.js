@@ -7,7 +7,7 @@ export function beautifyJinja(htmlString = "") {
 }
 
 function jinjaToHTML(jinjaString = "") {
-  const r = /({%|{%-}) *(.*?) +(.*?) *(-%}|%})/gs;
+  const r = /({%[-]?) *(.*?) +(.*?) *([-]?%})/gs;
   return jinjaString.replace(r, (match, _, cmd, __, ___,index) => {
     for (let i = index; i > 0; i--) {
       if(jinjaString[i] === ">")
