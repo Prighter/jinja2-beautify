@@ -1,6 +1,6 @@
 {
   "name": "jinja2-beautify",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "homepage": "https://github.com/hakanalpp/jinja2-beautify",
   "main": "index.js",
   "bin": {
@@ -11,8 +11,8 @@
   "license": "MIT",
   "type": "module",
   "bugs": {
-    "url" : "https://github.com/hakanalpp/jinja2-beautify/issues",
-    "email" : "hakana926@gmail.com"
+    "url": "https://github.com/hakanalpp/jinja2-beautify/issues",
+    "email": "hakana926@gmail.com"
   },
   "scripts": {
     "start": "node index.js"
