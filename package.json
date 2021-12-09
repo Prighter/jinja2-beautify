@@ -1,6 +1,6 @@
 {
   "name": "jinja2-beautify",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "homepage": "https://github.com/hakanalpp/jinja2-beautify",
   "main": "index.js",
   "bin": {
