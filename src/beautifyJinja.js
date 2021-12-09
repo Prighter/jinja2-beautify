@@ -15,7 +15,7 @@ function jinjaToHTML(jinjaString = "") {
       else if (jinjaString[i] === "<")
         return match;
     }
-    if (cmd === "from" || cmd === "extends" || cmd === "set") {
+    if (cmd === "from" || cmd === "extends" || cmd === "set" || cmd === "include") {
       return `<jinjaTag ${match}></jinjaTag>`;
     } 
     if (cmd === "else" || cmd === "elif") {
@@ -29,13 +29,14 @@ function jinjaToHTML(jinjaString = "") {
 }
 
 function HTMLToJinja(htmlString = "") {
-  const r = new RegExp("(<jinjaTag|</jinjaTag) *(.*?) +(.*?) *(>|/>)", "gs");
-  return htmlString
+  let jinjaString = htmlString.replace(/(\n *<\/jinjaTag>)|(<\/jinjaTag>)/g, "");
+
+  const r = new RegExp("(<jinjaTag|</jinjaTag) *(.*?) +(.*?) *(>|/>)", "g");
+  return jinjaString
     .replace(r, (match) => {
-      let tempMatch = match.replace(/<\/jinjaTag>/g, "");
-      tempMatch = tempMatch.includes("</")
-        ? tempMatch.replace(/<\/jinjaTag /g, "")
-        : tempMatch.replace(/<jinjaTag /g, "");
+      let tempMatch = match.includes("</")
+        ? match.replace(/<\/jinjaTag /g, "")
+        : match.replace(/<jinjaTag /g, "");
 
       return tempMatch[tempMatch.length - 1] === ">"
         ? tempMatch.slice(0, tempMatch.length - 1)
