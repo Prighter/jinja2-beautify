@@ -2,13 +2,11 @@ import fs from "fs";
 import { beautifyJinja } from "./beautifyJinja.js";
 
 export function beautifyJinjaFile(file = "") {
-  fs.readFile(file, "utf8", (readError, code) => {
-    if (readError) throw readError;
+  const beautifiedFile = formatFile(file);
+  fs.writeFileSync(file, beautifiedFile);
+}
 
-    const result = beautifyJinja(code);
-
-    fs.writeFile(file, result, (writeError) => {
-      if (writeError) throw writeError;
-    });
-  });
+export function formatFile(file = "") {
+  const html = fs.readFileSync(file, "utf8");
+  return beautifyJinja(html);
 }

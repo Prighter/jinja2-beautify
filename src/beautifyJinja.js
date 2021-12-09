@@ -8,16 +8,16 @@ export function beautifyJinja(htmlString = "") {
 
 function jinjaToHTML(jinjaString = "") {
   const r = /({%[-]?) *(.*?) +(.*?) *([-]?%})/gs;
-  return jinjaString.replace(r, (match, _, cmd, __, ___,index) => {
-    for (let i = index; i > 0; i--) {
-      if(jinjaString[i] === ">")
-        break;
-      else if (jinjaString[i] === "<")
-        return match;
+
+  return jinjaString.replace(r, (match, _, cmd, __, ___, index) => {
+    for (let i = index; i > 0; i -= 1) {
+      if (jinjaString[i] === ">") break;
+      else if (jinjaString[i] === "<") return match;
     }
+
     if (cmd === "from" || cmd === "extends" || cmd === "set" || cmd === "include") {
       return `<jinjaTag ${match}></jinjaTag>`;
-    } 
+    }
     if (cmd === "else" || cmd === "elif") {
       return `</jinjaTag><jinjaTag ${match}>`;
     }
@@ -29,17 +29,16 @@ function jinjaToHTML(jinjaString = "") {
 }
 
 function HTMLToJinja(htmlString = "") {
-  let jinjaString = htmlString.replace(/(\n *<\/jinjaTag>)|(<\/jinjaTag>)/g, "");
+  const jinjaString = htmlString.replace(/(\n *<\/jinjaTag>)|(<\/jinjaTag>)/g, "");
 
-  const r = new RegExp("(<jinjaTag|</jinjaTag) *(.*?) +(.*?) *(>|/>)", "g");
-  return jinjaString
-    .replace(r, (match) => {
-      let tempMatch = match.includes("</")
-        ? match.replace(/<\/jinjaTag /g, "")
-        : match.replace(/<jinjaTag /g, "");
+  const r = new RegExp("(<jinjaTag|</jinjaTag) *(.*?) +(.*?) *(>|/>)", "gs");
+  return jinjaString.replace(r, (match) => {
+    const tempMatch = match.includes("</")
+      ? match.replace(/<\/jinjaTag /g, "")
+      : match.replace(/<jinjaTag /g, "");
 
-      return tempMatch[tempMatch.length - 1] === ">"
-        ? tempMatch.slice(0, tempMatch.length - 1)
-        : tempMatch;
-    })
+    return tempMatch[tempMatch.length - 1] === ">"
+      ? tempMatch.slice(0, tempMatch.length - 1)
+      : tempMatch;
+  });
 }

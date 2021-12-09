@@ -1,3 +1,4 @@
 **/node_modules
-sampleHtmls
 .vscode
+macros.html
+macros.expected.html

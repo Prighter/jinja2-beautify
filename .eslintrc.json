@@ -20,8 +20,9 @@
         "import/prefer-default-export": "off",
         "no-unused-vars": "warn",
         "no-useless-escape": "off",
+        "no-console": "off",
         "no-use-before-define": "off",
-        "import/extensions ": ["never"],
+        "import/extensions": "off",
         "prefer-regex-literals": "off"
     }
 }
