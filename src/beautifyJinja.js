@@ -31,7 +31,7 @@ function jinjaToHTML(jinjaString = "") {
 function HTMLToJinja(htmlString = "") {
   const jinjaString = htmlString.replace(/(\n *<\/jinjaTag>)|(<\/jinjaTag>)/g, "");
 
-  const r = new RegExp("(<jinjaTag|</jinjaTag) *(.*?) +(.*?) *(>|/>)", "gs");
+  const r = new RegExp("(<jinjaTag|</jinjaTag) *(.*?) +(.*?) *(}>|/>)", "gs");
   return jinjaString.replace(r, (match) => {
     const tempMatch = match.includes("</")
       ? match.replace(/<\/jinjaTag /g, "")
