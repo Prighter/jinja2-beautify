@@ -1,4 +1,4 @@
-[![npm version](https://badge.fury.io/js/jinja2-beautify.svg)](https://badge.fury.io/js/jinja2-beautify)
+[![npm version](https://badge.fury.io/js/@prighter%2Fjinja2-beautify.svg)](https://badge.fury.io/js/@prighter%2Fjinja2-beautify)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 # Jinja Beautify
@@ -47,10 +47,17 @@ $ npm install -S jinja2-beautify
 
 ## Usage
 
+### Running the package globally
+
+```sh
+npx jinja2-beautify <filename1.html> <filename2.html>
+```
+
+
 ### Running the app
 
 ```sh
-$ yarn start <filename1>.html <filename2>.html
+$ yarn start <filename1.html> <filename2.html>
 ```
 
 ### Running the tests
