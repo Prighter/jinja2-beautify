@@ -84,4 +84,4 @@ See also the list of [contributors](https://github.com/Prighter/jinja2-beautify/
 
 ## License
 
-[MIT License](LICENSE) © [Prighter](https://prighter.com/)
+[GPL License](LICENSE) © [Prighter](https://prighter.com/)
