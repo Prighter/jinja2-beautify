@@ -8,3 +8,8 @@
 
 after_script:
   - echo "After script section"
+
+build1:
+  stage: build
+  script:
+    - echo "Do your build here"
