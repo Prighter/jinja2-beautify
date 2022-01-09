@@ -6,10 +6,27 @@
 
 # See https://docs.gitlab.com/ee/ci/yaml/index.html for all available options
 
+before_script:
+- apk add git openssh-client
+- eval $(ssh-agent -s)
+- mkdir -p ~/.ssh
+- '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+
 after_script:
   - echo "After script section"
 
-build1:
+clone-github:
   stage: build
+  before_script:
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+    - ssh-add <(echo "$GIT_SSH_PRIV_KEY")
+    - git config --global user.email "hakana926@gmail.com"
+    - git config --global user.name "hakanalpp"
+    - mkdir -p ~/.ssh
+    - cat deploy/gitlab-known-hosts >> ~/.ssh/known_hosts
   script:
-    - echo "Do your build here"
+    - git clone git@github.com:Prighter/jinja2-beautify.git
+    - git add --all -- ':!.gitignore' ':!README.md'
+    - (git commit -m "[MIRROR] Prighter Gitlab" || echo "Nothing to do")
+    - (git push || echo "Nothing to do")
