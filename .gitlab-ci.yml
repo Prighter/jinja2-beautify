@@ -23,8 +23,6 @@ clone-github:
     - ssh-add <(echo "$GITHUB_SSH_PRIVATEKEY")
     - git config --global user.email "hakan@prighter.com"
     - git config --global user.name "Prighter Hakan"
-    - mkdir -p ~/.ssh
-    - cat deploy/gitlab-known-hosts >> ~/.ssh/known_hosts
   script:
     - git clone git@github.com:Prighter/jinja2-beautify.git
     - git add --all -- ':!.gitignore' ':!README.md'
