@@ -27,4 +27,4 @@ clone-github:
     - git clone git@github.com:Prighter/jinja2-beautify.git
     - git add --all -- ':!.gitignore' ':!README.md'
     - (git commit -m "[MIRROR] Prighter Gitlab" || echo "Nothing to do")
-    - (git push || echo "Nothing to do")
+    - (git push origin HEAD:main || echo "Nothing to do")
