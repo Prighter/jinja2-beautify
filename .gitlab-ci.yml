@@ -20,9 +20,9 @@ clone-github:
   before_script:
     - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
     - eval $(ssh-agent -s)
-    - ssh-add <(echo "$GIT_SSH_PRIV_KEY")
-    - git config --global user.email "hakana926@gmail.com"
-    - git config --global user.name "hakanalpp"
+    - ssh-add <(echo "$GITHUB_SSH_PRIVATEKEY")
+    - git config --global user.email "hakan@prighter.com"
+    - git config --global user.name "Prighter Hakan"
     - mkdir -p ~/.ssh
     - cat deploy/gitlab-known-hosts >> ~/.ssh/known_hosts
   script:
