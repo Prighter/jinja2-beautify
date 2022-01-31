@@ -21,12 +21,10 @@ clone-github:
     - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
     - eval $(ssh-agent -s)
     - ssh-add <(echo "$GITHUB_SSH_PRIVATEKEY")
-    - git config --global user.email "hakan@prighter.com"
-    - git config --global user.name "Prighter Hakan"
+    - git config --local user.email "hakana926@gmail.com"
+    - git config --local user.name "hakanalpp"
   script:
     - git clone --bare git@github.com:Prighter/jinja2-beautify.git
-    - git add --all ':!.gitignore' ':!README.md' ':!jinja2-beautify.git' ':!.gitlab-ci.yml'
-    - git diff --cached --name-only
     - (git commit -m "[MIRROR] Prighter Gitlab" || echo "Nothing to commit")
     - (git push --mirror git@github.com:Prighter/jinja2-beautify.git || echo "Nothing to push")
     - rm -rf jinja2-beautify.git
