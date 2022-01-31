@@ -24,7 +24,8 @@ clone-github:
     - git config --global user.email "hakan@prighter.com"
     - git config --global user.name "Prighter Hakan"
   script:
-    - git clone git@github.com:Prighter/jinja2-beautify.git
-    - git add --all -- ':!.gitignore' ':!README.md'
+    - git clone --bare git@github.com:Prighter/jinja2-beautify.git
+    - git add --all -- ':!.gitignore' ':!README.md' ':!jinja2-beautify.git'
     - (git commit -m "[MIRROR] Prighter Gitlab" || echo "Nothing to do")
-    - (git push origin HEAD:main || echo "Nothing to do")
+    - (git push --mirror git@github.com:Prighter/jinja2-beautify.git || echo "Nothing to do")
+    - rm -rf jinja2-beautify.git
