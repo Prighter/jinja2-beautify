@@ -24,7 +24,4 @@ clone-github:
     - git config --local user.email "hakana926@gmail.com"
     - git config --local user.name "hakanalpp"
   script:
-    - git clone --bare git@github.com:Prighter/jinja2-beautify.git
-    - (git commit -m "[MIRROR] Prighter Gitlab" || echo "Nothing to commit")
     - (git push --mirror git@github.com:Prighter/jinja2-beautify.git || echo "Nothing to push")
-    - rm -rf jinja2-beautify.git
