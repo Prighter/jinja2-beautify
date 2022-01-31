@@ -1,0 +1,43 @@
+{
+  "name": "@prighter/jinja2-beautify",
+  "version": "1.0.0",
+  "homepage": "https://github.com/Prighter/jinja2-beautify",
+  "main": "index.js",
+  "bin": {
+    "jinja2-beautify": "index.js"
+  },
+  "repository": "git@github.com:Prighter/jinja2-beautify.git",
+  "author": "Hakan Alp <hakana926@gmail.com>",
+  "license": "MIT",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/hakanalpp/Prighter/issues",
+    "email": "hakana926@gmail.com"
+  },
+  "publishConfig": {
+    "access": "public"
+  },  
+  "keywords": [
+    "jinja formatter",
+    "jinja",
+    "beautifier",
+    "formatter"
+  ],
+  "scripts": {
+    "start": "node index.js",
+    "test": "node src/test.js"
+  },
+  "dependencies": {
+    "js-beautify": "^1.14.0",
+    "yargs": "^17.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.4.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.5.0"
+  }
+}
